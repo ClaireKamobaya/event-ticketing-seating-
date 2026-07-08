@@ -1,0 +1,23 @@
+{
+        "meta":{
+                "version": "v1",
+                "app_name": "Event Ticketing and Seating",
+                "log_prefix": "event_ticketing_seating"
+        },
+        "database":{
+                "pool":{
+                        "name": "event_ticketing_db_pool",
+                        "size": 10,
+                        "reset_session": true,
+                        "use_pure": true
+                },
+                "connection":{
+                        "config":{
+                                "database": "event_ticketing_seating",
+                                "user": "root",
+                                "host": "localhost",
+                                "port": 3306
+                        }
+                }
+        }
+}
