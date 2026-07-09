@@ -1,6 +1,4 @@
-/* ***********************************************************
-    Drop and Create the tables for the event_ticketing_seating database.
-************************************************************** */
+SET FOREIGN_KEY_CHECKS=0;
 
 USE `event_ticketing_seating`;
 
@@ -76,3 +74,5 @@ ALTER TABLE `ticket_xref`
   ADD CONSTRAINT `ticket_xref_ibfk_2`
   FOREIGN KEY (`event_id`) REFERENCES `Event` (`id`)
   ON UPDATE CASCADE;
+
+  SET FOREIGN_KEY_CHECKS=1;
