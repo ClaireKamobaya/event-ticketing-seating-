@@ -1,0 +1,1 @@
+DROP USER IF EXISTS 'event_ticketing_user'@'localhost';
