@@ -2,7 +2,7 @@
 
 import logging
 import logging.handlers
-from application_name.settings import Settings
+from event_ticketing.settings import Settings
 import os
 
 class LoggingService():
