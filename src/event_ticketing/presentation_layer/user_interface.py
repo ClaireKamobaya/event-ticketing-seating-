@@ -74,14 +74,29 @@ class UserInterface(ApplicationBase):
         attendee_id = input("Your attendee ID: ")
         event_id = input("Event ID: ")
         seat_number = input("Seat number (e.g., A12): ")
-        result = self.DB.book_ticket(int(attendee_id), int(event_id), seat_number)
-        print(f"Ticket booked! Confirmation code: {result['confirmation_code']}, "
-              f"Ticket ID: {result['ticket_id']}")
+        try:
+            result = self.DB.book_ticket(int(attendee_id), int(event_id), seat_number)
+            print(f"Ticket booked! Confirmation code: {result['confirmation_code']}, "
+                  f"Ticket ID: {result['ticket_id']}")
+        except ValueError:
+            print("Error: Attendee ID and Event ID must be numbers.")
+        except Exception as e:
+            print("Error: Could not book ticket. Please check that the Attendee ID "
+                  "and Event ID both exist (use options 1 and 2 to check).")
+            self._logger.log_error(f'_book_ticket: {e}')
 
     def _view_my_tickets(self):
         attendee_id = input("Your attendee ID: ")
-        tickets = self.DB.get_attendee_tickets(int(attendee_id))
-        print("\n--- Your Tickets ---")
-        for t in tickets:
-            print(f"{t['event_name']} | Seat: {t['seat_number']} | "
-                  f"Confirmation: {t['confirmation_code']} | Purchased: {t['purchase_date']}")
+        try:
+            tickets = self.DB.get_attendee_tickets(int(attendee_id))
+            print("\n--- Your Tickets ---")
+            if not tickets:
+                print("No tickets found for this attendee.")
+            for t in tickets:
+                print(f"{t['event_name']} | Seat: {t['seat_number']} | "
+                      f"Confirmation: {t['confirmation_code']} | Purchased: {t['purchase_date']}")
+        except ValueError:
+            print("Error: Attendee ID must be a number.")
+        except Exception as e:
+            print("Error: Could not retrieve tickets.")
+            self._logger.log_error(f'_view_my_tickets: {e}')

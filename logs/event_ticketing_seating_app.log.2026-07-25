@@ -1,0 +1,35 @@
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:09:54,617:__init__:It works!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:09:54,617:__init__: DB Connection Config Dict: {'database': 'event_ticketing_seating', 'user': 'event_ticketing_user', 'host': 'localhost', 'port': 3306}
+DEBUG:AppServices:2026-07-25 11:09:54,617:__init__:It works!
+DEBUG:UserInterface:2026-07-25 11:09:54,617:__init__:It works!
+DEBUG:UserInterface:2026-07-25 11:09:54,617:start: User interface started!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:30:11,732:__init__:It works!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:30:11,732:__init__: DB Connection Config Dict: {'database': 'event_ticketing_seating', 'user': 'event_ticketing_user', 'host': 'localhost', 'port': 3306}
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:30:11,733:Creating connection pool...
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:30:44,235:_initialize_database_connection_pool: Connection pool successfully created!
+DEBUG:AppServices:2026-07-25 11:30:44,235:__init__:It works!
+DEBUG:UserInterface:2026-07-25 11:30:44,236:__init__:It works!
+DEBUG:UserInterface:2026-07-25 11:30:44,236:start: User interface started!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:54:25,485:__init__:It works!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:54:25,485:__init__: DB Connection Config Dict: {'database': 'event_ticketing_seating', 'user': 'event_ticketing_user', 'host': 'localhost', 'port': 3306}
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:54:25,485:Creating connection pool...
+DEBUG:MySQLPersistenceWrapper:2026-07-25 11:54:58,083:_initialize_database_connection_pool: Connection pool successfully created!
+DEBUG:AppServices:2026-07-25 11:54:58,083:__init__:It works!
+DEBUG:UserInterface:2026-07-25 11:54:58,083:__init__:It works!
+DEBUG:UserInterface:2026-07-25 11:54:58,083:start: User interface started!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 12:46:29,349:__init__:It works!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 12:46:29,349:__init__: DB Connection Config Dict: {'database': 'event_ticketing_seating', 'user': 'event_ticketing_user', 'host': 'localhost', 'port': 3306}
+DEBUG:MySQLPersistenceWrapper:2026-07-25 12:46:29,349:Creating connection pool...
+DEBUG:MySQLPersistenceWrapper:2026-07-25 12:47:01,785:_initialize_database_connection_pool: Connection pool successfully created!
+DEBUG:AppServices:2026-07-25 12:47:01,786:__init__:It works!
+DEBUG:UserInterface:2026-07-25 12:47:01,786:__init__:It works!
+DEBUG:UserInterface:2026-07-25 12:47:01,786:start: User interface started!
+DEBUG:AppServices:2026-07-25 13:26:57,215:register_attendee: Registered attendee 2 with registration_id REGD5189340
+DEBUG:MySQLPersistenceWrapper:2026-07-25 13:28:12,996:__init__:It works!
+DEBUG:MySQLPersistenceWrapper:2026-07-25 13:28:12,996:__init__: DB Connection Config Dict: {'database': 'event_ticketing_seating', 'user': 'event_ticketing_user', 'host': 'localhost', 'port': 3306}
+DEBUG:MySQLPersistenceWrapper:2026-07-25 13:28:12,996:Creating connection pool...
+DEBUG:MySQLPersistenceWrapper:2026-07-25 13:28:45,425:_initialize_database_connection_pool: Connection pool successfully created!
+DEBUG:AppServices:2026-07-25 13:28:45,425:__init__:It works!
+DEBUG:UserInterface:2026-07-25 13:28:45,425:__init__:It works!
+DEBUG:UserInterface:2026-07-25 13:28:45,425:start: User interface started!
+DEBUG:AppServices:2026-07-25 13:29:48,011:book_ticket: Booked ticket TICKC933E433 for attendee 2
