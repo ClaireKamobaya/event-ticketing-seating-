@@ -1,0 +1,17 @@
+DEBUG:UserInterface:2026-07-26 17:58:24,457:__init__:It works!
+DEBUG:UserInterface:2026-07-26 17:58:24,459:start: User interface started!
+ERROR:UserInterface:2026-07-26 17:58:41,285:_book_ticket: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`event_ticketing_seating`.`ticket_xref`, CONSTRAINT `ticket_xref_ibfk_1` FOREIGN KEY (`attendee_id`) REFERENCES `attendee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:10:10,879:__init__:It works!
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:10:10,880:__init__: DB Connection Config Dict: {'database': 'event_ticketing_seating', 'user': 'event_ticketing_user', 'host': 'localhost', 'port': 3306}
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:10:10,881:Creating connection pool...
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:10:43,292:_initialize_database_connection_pool: Connection pool successfully created!
+DEBUG:AppServices:2026-07-26 18:10:43,293:__init__:It works!
+DEBUG:UserInterface:2026-07-26 18:10:43,293:__init__:It works!
+DEBUG:UserInterface:2026-07-26 18:10:43,293:start: User interface started!
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:12:04,019:__init__:It works!
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:12:04,019:__init__: DB Connection Config Dict: {'database': 'event_ticketing_seating', 'user': 'event_ticketing_user', 'host': 'localhost', 'port': 3306}
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:12:04,020:Creating connection pool...
+DEBUG:MySQLPersistenceWrapper:2026-07-26 18:12:36,454:_initialize_database_connection_pool: Connection pool successfully created!
+DEBUG:AppServices:2026-07-26 18:12:36,455:__init__:It works!
+DEBUG:UserInterface:2026-07-26 18:12:36,455:__init__:It works!
+DEBUG:UserInterface:2026-07-26 18:12:36,455:start: User interface started!
