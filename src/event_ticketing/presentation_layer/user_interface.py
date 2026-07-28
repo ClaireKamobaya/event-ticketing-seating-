@@ -30,8 +30,10 @@ class UserInterface(ApplicationBase):
             print("3. Register a new attendee")
             print("4. Book a ticket")
             print("5. View my tickets")
-            print("6. Exit")
-            choice = input("Enter your choice (1-6): ")
+            print("6. Update my contact info")
+            print("7. Cancel a ticket")
+            print("8. Exit")
+            choice = input("Enter your choice (1-8): ")
 
             if choice == "1":
                 self._view_events()
@@ -44,6 +46,10 @@ class UserInterface(ApplicationBase):
             elif choice == "5":
                 self._view_my_tickets()
             elif choice == "6":
+                self._update_contact()
+            elif choice == "7":
+                self._cancel_ticket()
+            elif choice == "8":
                 print("Goodbye!")
                 break
             else:
@@ -93,10 +99,40 @@ class UserInterface(ApplicationBase):
             if not tickets:
                 print("No tickets found for this attendee.")
             for t in tickets:
-                print(f"{t['event_name']} | Seat: {t['seat_number']} | "
+                print(f"Ticket ID: {t['id']} | {t['event_name']} | Seat: {t['seat_number']} | "
                       f"Confirmation: {t['confirmation_code']} | Purchased: {t['purchase_date']}")
         except ValueError:
             print("Error: Attendee ID must be a number.")
         except Exception as e:
             print("Error: Could not retrieve tickets.")
             self._logger.log_error(f'_view_my_tickets: {e}')
+
+    def _update_contact(self):
+        attendee_id = input("Your attendee ID: ")
+        email = input("New email: ")
+        phone = input("New phone: ")
+        try:
+            success = self.DB.update_attendee_contact(int(attendee_id), email, phone)
+            if success:
+                print("Contact info updated!")
+            else:
+                print("No attendee found with that ID.")
+        except ValueError:
+            print("Error: Attendee ID must be a number.")
+        except Exception as e:
+            print("Error: Could not update contact info.")
+            self._logger.log_error(f'_update_contact: {e}')
+
+    def _cancel_ticket(self):
+        ticket_id = input("Ticket ID to cancel (use option 5 to find it): ")
+        try:
+            success = self.DB.cancel_ticket(int(ticket_id))
+            if success:
+                print("Ticket cancelled!")
+            else:
+                print("No ticket found with that ID.")
+        except ValueError:
+            print("Error: Ticket ID must be a number.")
+        except Exception as e:
+            print("Error: Could not cancel ticket.")
+            self._logger.log_error(f'_cancel_ticket: {e}')

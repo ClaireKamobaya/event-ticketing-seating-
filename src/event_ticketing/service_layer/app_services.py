@@ -55,3 +55,15 @@ class AppServices(ApplicationBase):
     def get_attendee_tickets(self, attendee_id: int) -> list:
         """Returns all tickets belonging to a given attendee."""
         return self.DB.select_tickets_by_attendee(attendee_id)
+
+    def update_attendee_contact(self, attendee_id: int, email: str, phone: str) -> bool:
+        """Updates an attendee's contact info."""
+        result = self.DB.update_attendee(attendee_id, email, phone)
+        self._logger.log_debug(f'{inspect.currentframe().f_code.co_name}: Updated attendee {attendee_id}')
+        return result
+
+    def cancel_ticket(self, ticket_id: int) -> bool:
+        """Cancels (deletes) a ticket."""
+        result = self.DB.delete_ticket(ticket_id)
+        self._logger.log_debug(f'{inspect.currentframe().f_code.co_name}: Cancelled ticket {ticket_id}')
+        return result

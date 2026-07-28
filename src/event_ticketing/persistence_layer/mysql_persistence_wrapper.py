@@ -51,6 +51,12 @@ class MySQLPersistenceWrapper(ApplicationBase):
             "FROM ticket_xref t JOIN Event e ON t.event_id = e.id " \
             "WHERE t.attendee_id = %s"
 
+        self.UPDATE_ATTENDEE = \
+            "UPDATE Attendee SET email = %s, phone = %s WHERE id = %s"
+
+        self.DELETE_TICKET = \
+            "DELETE FROM ticket_xref WHERE id = %s"
+
     ##### Private Utility Methods #####
 
     def _initialize_database_connection_pool(self, config: dict) -> MySQLConnectionPool:
@@ -129,3 +135,25 @@ class MySQLPersistenceWrapper(ApplicationBase):
         cursor.close()
         cnx.close()
         return rows
+
+    def update_attendee(self, attendee_id: int, email: str, phone: str) -> bool:
+        """Updates an attendee's email and phone number."""
+        cnx = self._connection_pool.get_connection()
+        cursor = cnx.cursor()
+        cursor.execute(self.UPDATE_ATTENDEE, (email, phone, attendee_id))
+        cnx.commit()
+        success = cursor.rowcount > 0
+        cursor.close()
+        cnx.close()
+        return success
+
+    def delete_ticket(self, ticket_id: int) -> bool:
+        """Deletes a ticket by its id."""
+        cnx = self._connection_pool.get_connection()
+        cursor = cnx.cursor()
+        cursor.execute(self.DELETE_TICKET, (ticket_id,))
+        cnx.commit()
+        success = cursor.rowcount > 0
+        cursor.close()
+        cnx.close()
+        return success
